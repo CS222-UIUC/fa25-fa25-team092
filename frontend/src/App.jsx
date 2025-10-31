@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import frLogo from './assets/logo.png' // Ensure this path is correct relative to App.jsx
 import './App.css'
+
+// Note: Removed unused imports 'reactLogo', 'viteLogo' for clarity.
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,25 +10,24 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
+        {/* Your Logo Code - Simplified to only show your logo and link */}
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img 
+            src={frLogo} 
+            className="logo fr-logo" // Added a unique class for styling
+            alt="Music Feed Logo" 
+          />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Vite + React - Music App</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          Start building your music post feed here!
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
