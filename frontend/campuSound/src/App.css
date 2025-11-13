@@ -6,8 +6,9 @@
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  margin: 0px;
+  height: 1.75in;
+  padding: 0in;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -35,8 +36,67 @@
 
 .card {
   padding: 2em;
+  margin-bottom: 1000px;
 }
 
 .read-the-docs {
   color: #888;
 }
+
+
+.bottom-menu {
+  font-family: 'Quicksand', sans-serif;
+  position: fixed; 
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.4);
+  
+  /* 2. Position it exactly at the bottom edge */
+  bottom: 20px;
+  
+  /* 3. Make it span the entire width */
+  left: 0;
+  right:0;
+  width: 600px;
+  margin: auto;
+  
+  /* 4. Ensure it sits on top of all other content */
+  z-index: 1000; 
+  
+  /* 5. Basic styling */
+  background-color: #333; /* Dark background */
+  padding: 3px; /* Vertical padding */
+  border-bottom-left-radius: 150px;
+  border-bottom-right-radius: 150px; 
+  border-top-left-radius: 150px; 
+  border-top-right-radius: 150px;
+
+}
+
+/* Styling the list to lay out the links horizontally */
+.bottom-menu ul {
+  list-style-type: none; /* Remove bullet points */
+  margin: 0;
+  padding: 10px;
+  display: flex; /* Use Flexbox to align items */
+  justify-content: space-around; /* Distribute space evenly between links */
+}
+
+/* Styling the individual list items and links */
+.bottom-menu li {
+  text-align: center;
+}
+
+.bottom-menu a {
+  color: white; /* White text for links */
+  text-decoration: none; /* Remove underlines */
+  padding: 8px 16px; 
+  display: block;
+}
+
+
+
+/* Adjust the body to ensure content doesn't get hidden behind the menu */
+body {
+  /* Add padding to the bottom of the body equal to the height of the menu bar */
+  padding-bottom: 50px; /* Adjust this value to match your menu's actual height */
+}
+
