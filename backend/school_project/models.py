@@ -1,6 +1,6 @@
 from django.db import models
 
-class User(models.Model):
+class UserProfile(models.Model):
     username = models.CharField(max_length=50, unique=True)
     netId = models.CharField(max_length=50, unique=True)
     likedSongs = models.ManyToManyField('Song', related_name='liked_by')
