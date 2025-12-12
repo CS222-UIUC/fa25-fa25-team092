@@ -1,0 +1,149 @@
+.navigation {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 280px;
+  background: #ffffff;
+  border-right: 1px solid rgba(65, 105, 225, 0.2);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  padding: 0;
+}
+
+.nav-header {
+  padding: 1.5rem 1.25rem;
+  border-bottom: 1px solid rgba(65, 105, 225, 0.2);
+}
+
+.logo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.logo-button:hover {
+  transform: scale(1.02);
+}
+
+.logo-button:active {
+  transform: scale(0.98);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  height: 42px;
+  width: 42px;
+  object-fit: contain;
+  transition: filter 0.3s ease;
+}
+
+.logo-button:hover .logo {
+  filter: brightness(1.1);
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ff8c00;
+  letter-spacing: -0.5px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0.75rem;
+  flex: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--orange-primary);
+  transform: scaleY(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover {
+  background: var(--bg-hover);
+  color: var(--blue-primary);
+  transform: translateX(4px);
+}
+
+.nav-item.active {
+  background: rgba(255, 140, 0, 0.1);
+  color: var(--blue-primary);
+  font-weight: 600;
+}
+
+.nav-item.active::before {
+  transform: scaleY(1);
+}
+
+.nav-icon {
+  font-size: 1.4rem;
+  width: 28px;
+  text-align: center;
+  transition: opacity 0.2s ease;
+  opacity: 0.6;
+}
+
+.nav-item:hover .nav-icon,
+.nav-item.active .nav-icon {
+  opacity: 1;
+}
+
+.nav-label {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    width: 80px;
+  }
+  
+  .logo-text,
+  .nav-label {
+    display: none;
+  }
+  
+  .logo-container {
+    justify-content: center;
+  }
+  
+  .nav-item {
+    justify-content: center;
+    padding: 1rem 0.5rem;
+  }
+}
