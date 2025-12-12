@@ -1,39 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import logo from './assets/logo.png'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import Search from './pages/Search';
+import Profile from './pages/Profile';
+import Forums from './pages/Forums';
+import { PlaylistDetail, CreatePlaylist } from './pages/Playlists';
+import TrackDetail from './pages/TrackDetail';
+import PostDetail from './pages/PostDetail';
+import Settings from './pages/Settings';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-          <a href="https://react.dev" target="_blank">
-          <img src={logo} className="logo" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+// Protected Route component
+function ProtectedRoute({ children }) {
+  const user = localStorage.getItem('user');
+  return user ? children : <Navigate to="/login" />;
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/*"
+          element={
+            <ProtectedRoute>
+              <div className="app-layout">
+                <Navigation />
+                <main className="main-content">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/search" element={<Search />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/forums" element={<Forums />} />
+                    <Route path="/forums/:id" element={<PostDetail />} />
+                    <Route path="/playlists/:id" element={<PlaylistDetail />} />
+                    <Route path="/playlists/create" element={<CreatePlaylist />} />
+                    <Route path="/track/:id" element={<TrackDetail />} />
+                    <Route path="/settings" element={<Settings />} />
+                  </Routes>
+                </main>
+              </div>
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
