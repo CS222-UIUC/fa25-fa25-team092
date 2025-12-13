@@ -3,19 +3,20 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-from .models import User, Song
+from .models import Song
+from users.models import UserProfile
 from .serializers import UserSerializer, SongSerializer
 
 
 # Create a new user
 class UserCreateView(generics.CreateAPIView):
-    queryset = User.objects.all()
+    queryset = UserProfile.objects.all()
     serializer_class = UserSerializer
 
 
 # Get user details (including liked songs)
 class UserDetailView(generics.RetrieveAPIView):
-    queryset = User.objects.all()
+    queryset = UserProfile.objects.all()
     serializer_class = UserSerializer
 
 
@@ -29,9 +30,9 @@ class SongListCreateView(generics.ListCreateAPIView):
 @api_view(['POST'])
 def like_song(request, user_id, song_id):
     try:
-        user = User.objects.get(id=user_id)
+        user = UserProfile.objects.get(id=user_id)
         song = Song.objects.get(id=song_id)
-    except (User.DoesNotExist, Song.DoesNotExist):
+    except (UserProfile.DoesNotExist, Song.DoesNotExist):
         return Response({"error": "User or Song not found"}, status=status.HTTP_404_NOT_FOUND)
 
     user.likedSongs.add(song)
@@ -42,9 +43,9 @@ def like_song(request, user_id, song_id):
 @api_view(['POST'])
 def unlike_song(request, user_id, song_id):
     try:
-        user = User.objects.get(id=user_id)
+        user = UserProfile.objects.get(id=user_id)
         song = Song.objects.get(id=song_id)
-    except (User.DoesNotExist, Song.DoesNotExist):
+    except (UserProfile.DoesNotExist, Song.DoesNotExist):
         return Response({"error": "User or Song not found"}, status=status.HTTP_404_NOT_FOUND)
 
     user.likedSongs.remove(song)
