@@ -4,6 +4,16 @@ Group Members:
 
 Aryanna (among), Delilah (meerman3), Akhilesh (am88)
 
+Roles:
+
+QA Engineer: Akhilesh
+UX Designer: Aryana
+Business Analyst: Delilah
+DevOps Engineer: All of us
+Project Manager: All of us
+Software Developer: All of us
+
+
 
 Summary: 
 
