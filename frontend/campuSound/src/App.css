@@ -1,0 +1,19 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  background: var(--bg-dark);
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  min-height: 100vh;
+  background: var(--bg-dark);
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 80px;
+  }
+}

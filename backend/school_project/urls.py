@@ -16,13 +16,11 @@ Including another URLconf
 """
 from xml.etree.ElementInclude import include
 from django.contrib import admin
-from django.urls import path
-
-from backend.school_project import views
+from django.urls import path, include
 
 urlpatterns = [
     path('register/', views.register),
     path('login/', views.login),
     path('admin/', admin.site.urls),
-    path('profile/', include('school_app.urls')),
+    path('api/', include('api.urls')),
 ]
