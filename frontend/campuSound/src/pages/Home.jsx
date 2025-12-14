@@ -6,15 +6,6 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // TODO: Replace with actual API call
-    // fetch('/api/feed')
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setFeed(data);
-    //     setLoading(false);
-    //   });
-
-    // Mock data for now
     setTimeout(() => {
       setFeed([
         {

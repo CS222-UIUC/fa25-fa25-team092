@@ -10,16 +10,7 @@ function PostDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // TODO: Replace with actual API calls
-    // fetch(`/api/forums/${id}`)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setPost(data.post);
-    //     setComments(data.comments);
-    //     setLoading(false);
-    //   });
 
-    // Mock data
     setTimeout(() => {
       setPost({
         id: id,

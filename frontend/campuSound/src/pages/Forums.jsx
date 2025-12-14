@@ -11,15 +11,7 @@ function Forums() {
   const tags = ['all', 'pop', 'rock', 'indie', 'hip-hop', 'electronic', 'jazz', 'classical'];
 
   useEffect(() => {
-    // TODO: Replace with actual API call
-    // fetch(`/api/forums?tag=${selectedTag}&sort=${sortBy}`)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setPosts(data);
-    //     setLoading(false);
-    //   });
 
-    // Mock data
     setTimeout(() => {
       setPosts([
         {

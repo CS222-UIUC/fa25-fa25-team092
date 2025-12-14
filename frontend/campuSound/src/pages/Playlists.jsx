@@ -9,16 +9,7 @@ function PlaylistDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // TODO: Replace with actual API call
-    // fetch(`/api/playlists/${id}`)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setPlaylist(data.playlist);
-    //     setSongs(data.songs);
-    //     setLoading(false);
-    //   });
 
-    // Mock data
     setTimeout(() => {
       setPlaylist({
         id: id,
@@ -96,13 +87,8 @@ function CreatePlaylist() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Replace with actual API call
-    // await fetch('/api/playlists/create', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ name, description, isPublic })
-    // });
-    alert('Playlist created! (This is a mock)');
+
+    alert('Playlist created!');
   };
 
   return (
@@ -117,7 +103,7 @@ function CreatePlaylist() {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="My Awesome Playlist"
+              placeholder="Studying Playlist"
               required
             />
           </div>

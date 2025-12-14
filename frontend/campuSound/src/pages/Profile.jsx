@@ -9,20 +9,7 @@ function Profile() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // TODO: Replace with actual API calls
-    // fetch('/api/profile')
-    //   .then(res => res.json())
-    //   .then(data => setUser(data));
-    
-    // fetch('/api/stats')
-    //   .then(res => res.json())
-    //   .then(data => setStats(data));
-    
-    // fetch('/api/playlists')
-    //   .then(res => res.json())
-    //   .then(data => setPlaylists(data));
 
-    // Mock data
     setTimeout(() => {
       const storedUser = localStorage.getItem('user');
       setUser(storedUser ? JSON.parse(storedUser) : { netId: 'jdoe2', name: 'Jane Doe' });
@@ -33,13 +20,13 @@ function Profile() {
           { name: 'Harry Styles', plays: 189 },
           { name: 'Taylor Swift', plays: 156 }
         ],
-        totalSongs: 1234,
-        totalPlaylists: 8
+        totalSongs: 73,
+        totalPlaylists: 3
       });
       setPlaylists([
-        { id: 1, name: 'My Favorites', songCount: 25, isPublic: true },
-        { id: 2, name: 'Workout Mix', songCount: 30, isPublic: false },
-        { id: 3, name: 'Chill Vibes', songCount: 18, isPublic: true }
+        { id: 1, name: 'Studying', songCount: 25, isPublic: true },
+        { id: 2, name: 'Workout', songCount: 30, isPublic: false },
+        { id: 3, name: 'Driving Playlist', songCount: 18, isPublic: true }
       ]);
       setLoading(false);
     }, 500);

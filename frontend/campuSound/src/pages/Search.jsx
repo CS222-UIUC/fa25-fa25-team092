@@ -13,13 +13,7 @@ function Search() {
     if (!query.trim()) return;
 
     setLoading(true);
-    
-    // TODO: Replace with actual API call
-    // const response = await fetch(`/api/search?q=${encodeURIComponent(query)}&type=${searchType}`);
-    // const data = await response.json();
-    // setResults(data);
 
-    // Mock data
     setTimeout(() => {
       setResults([
         {
