@@ -19,22 +19,15 @@ function Login() {
     }
 
     // Check if NetID ends with @illinois.edu or is a valid UIUC NetID format
-    const isValidNetId = netId.includes('@illinois.edu') || /^[a-z]{2,3}\d+$/.test(netId.toLowerCase());
+    const isValidNetId = netId.includes('@illinois.edu');
     
     if (!isValidNetId) {
-      setError('Please enter a valid UIUC NetID (e.g., jdoe2 or jdoe2@illinois.edu)');
+      setError('Please enter a valid UIUC NetID email (e.g., jdoe2@illinois.edu)');
       return;
     }
 
     try {
-      // TODO: Replace with actual API call
-      // const response = await fetch('/api/auth/login', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ netId, password })
-      // });
-      
-      // For now, simulate successful login
+
       localStorage.setItem('user', JSON.stringify({ netId, isAuthenticated: true }));
       navigate('/');
     } catch (err) {
@@ -50,13 +43,13 @@ function Login() {
         
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
-            <label htmlFor="netId">UIUC NetID</label>
+            <label htmlFor="netId">UIUC NetID Email</label>
             <input
               type="text"
               id="netId"
               value={netId}
               onChange={(e) => setNetId(e.target.value)}
-              placeholder="jdoe2 or jdoe2@illinois.edu"
+              placeholder="jdoe2@illinois.edu"
               required
             />
           </div>
